@@ -5,14 +5,14 @@ vim.cmd [[packadd packer.nvim]]
 return require("packer").startup(function()
     -- Packer is managed by itself
     use "wbthomason/packer.nvim"
-	-- Color schema
-	use "Mofiqul/dracula.nvim"
+    -- Color schema
+    use "Mofiqul/dracula.nvim"
     -- Quick-Scope
     use "unblevable/quick-scope"
-	-- Indent lines
-	use "lukas-reineke/indent-blankline.nvim"
-	-- Toggleterm
-	use "akinsho/toggleterm.nvim"
+    -- Indent lines
+    use "lukas-reineke/indent-blankline.nvim"
+    -- Toggleterm
+    use "akinsho/toggleterm.nvim"
     -- status bar
     use {
         "nvim-lualine/lualine.nvim",
@@ -21,8 +21,6 @@ return require("packer").startup(function()
             opt = true
         }
     }
-    -- Highlight what you yank
-    use "machakann/vim-highlightedyank"
     -- Fuzzy finder
     use {
         "nvim-telescope/telescope.nvim",
@@ -47,7 +45,7 @@ return require("packer").startup(function()
     -- Debugger adapter
     use "mfussenegger/nvim-dap"
     use "mfussenegger/nvim-dap-python"
-	use "rcarriga/nvim-dap-ui"
+    use "rcarriga/nvim-dap-ui"
     -- LSP
     use {
         "VonHeikemen/lsp-zero.nvim",

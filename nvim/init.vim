@@ -19,3 +19,7 @@ filetype plugin indent on
 
 set clipboard+=unnamedplus
 set autoread
+
+" highlight text on yank this is documented in the
+" official lua API docs
+au TextYankPost * silent! lua vim.highlight.on_yank()

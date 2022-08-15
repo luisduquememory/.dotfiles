@@ -1,7 +1,8 @@
+abbr nv "nvim"
+
 function pycount -d "run my current guitar practice count"
     python $HOME/Documents/scripts/counter/count.py
 end
-
 
 function dcrmi -d "delete all docker images"
     docker images -a | awk '{print $3}' | xargs docker rmi
@@ -36,7 +37,7 @@ function buildnvim -d "build nvim from source"
   make CMAKE_BUILD_TYPE=Release
   echo "Running make install ..."
   sudo make install
-  echo "Displaying version and build type..."
+  echo "Displaying post-build version and build type..."
   nvim --version
   ./build/bin/nvim --version | grep ^Build
   echo "Returning to previous directory..."
