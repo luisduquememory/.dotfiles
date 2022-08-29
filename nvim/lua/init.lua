@@ -8,16 +8,16 @@ require("user.lualine")
 require("user.lsp")
 require("user.toggleterm")
 
-local general_settings = vim.g
-local global_variables = vim.o
+local g = vim.g
+local o = vim.o
 local set= vim.opt
 
-general_settings.mapleader = " "
+g.mapleader = " "
 require("user.keybinds") -- Always mapleader before any keybind
 
 vim.cmd[[colorscheme dracula]]
 
-general_settings.hardtime_default_on = 1000
+g.hardtime_default_on = 1000
 
 -- Indentation
 set.tabstop = 2
@@ -26,3 +26,13 @@ set.softtabstop = 2
 set.expandtab = true
 
 set.mouse = ""
+set.cursorline = true
+
+-- relative line numbers
+set.number = true
+set.relativenumber = true
+
+-- clipboard config
+set.clipboard  = "unnamedplus"
+
+set.autoread = true

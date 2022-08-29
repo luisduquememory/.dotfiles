@@ -8,9 +8,7 @@ end
 -- Misc
 normal_map("<Leader>ve", ":e $MYVIMRC<CR>")
 normal_map("<Leader>vr", ":source $MYVIMRC<CR>")
-normal_map("<Leader>ww", ":w<CR>")
 normal_map("<Leader>w", "<C-w>")
-normal_map("<Leader>h", ":Telescope help_tags <CR>")
 normal_map("<Leader>l", ":Telescope live_grep <CR>")
 -- I changed f to t, is more confortable for me using dvorak
 normal_map("t", "f")

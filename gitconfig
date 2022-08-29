@@ -1,0 +1,7 @@
+[user]
+	name = Luis Duque
+	email = luisfpetrucci@gmail.com
+[core]
+	editor = vim
+[safe]
+	directory = /Users/luis.duque/src/neovim
