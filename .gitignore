@@ -4,3 +4,9 @@ fish/fish_variables
 fish/conf.d/secrets.fish
 fish/functions/**
 fish/completions/**
+!emacs.d
+emacs.d/*
+!emacs.d/custom.el
+!emacs.d/init.el
+!emacs.d/packages.el
+!emacs.d/keybindings.el
