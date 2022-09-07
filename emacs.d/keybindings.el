@@ -13,4 +13,5 @@
   :keymaps 'normal
   "." 'find-file
   "p" 'projectile-command-map
+  "SPC" 'projectile-find-file
 )

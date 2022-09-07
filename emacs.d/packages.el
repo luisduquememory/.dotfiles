@@ -70,18 +70,11 @@
 
 (use-package magit)
 
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c s")
-  :config
-  (lsp-enable-which-key-integration t)
-)
-
 (use-package projectile
   :init
   (projectile-mode)
   :config
+  (setq projectile-enable-caching t)
   (setq projectile-completion-system 'ivy)
   (setq projectile-project-search-path '(("~/code" . 3)))
 )

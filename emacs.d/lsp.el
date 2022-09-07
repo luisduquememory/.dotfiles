@@ -1,3 +1,11 @@
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c s")
+  :config
+  (lsp-enable-which-key-integration t)
+)
+
 (require 'lsp-mode)
 
 ;; python
