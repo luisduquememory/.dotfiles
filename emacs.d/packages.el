@@ -16,6 +16,14 @@
 (use-package all-the-icons
   :if (display-graphic-p))
 
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0)
+)
+
 (use-package counsel)
 
 (use-package doom-modeline
@@ -42,6 +50,9 @@
   (evil-collection-init)
 )
 
+(use-package evil-nerd-commenter
+  :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
 (use-package general
   :init
   (general-evil-setup t)
@@ -59,7 +70,13 @@
 
 (use-package magit)
 
-(use-package lsp-mode)
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c s")
+  :config
+  (lsp-enable-which-key-integration t)
+)
 
 (use-package projectile
   :init
@@ -67,6 +84,13 @@
   :config
   (setq projectile-completion-system 'ivy)
   (setq projectile-project-search-path '(("~/code" . 3)))
+)
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2)
 )
 
 (use-package which-key
