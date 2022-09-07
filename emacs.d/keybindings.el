@@ -4,9 +4,7 @@
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
 
-;; Evil
-(setq evil-want-keybinding nil)
-(general-evil-setup t)
+;; General is a package, not a section
 (general-create-definer leader-definition
   ;; :prefix my-leader
   :prefix "SPC")

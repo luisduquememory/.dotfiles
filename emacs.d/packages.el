@@ -1,28 +1,76 @@
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
-; list the packages you want
-(setq package-list'(
-  all-the-icons
-  doom-modeline doom-themes
-  evil evil-collection
-  general
-  ivy ivy-rich counsel
-  magit
-  projectile
-  ripgrep
-  which-key
-  )
-)
-
-; activate all the packages
+(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-; fetch the list of packages available
-(unless package-archive-contents
-  (package-refresh-contents))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-and-compile
+  (setq use-package-always-ensure t
+        use-package-expand-minimally t))
 
-; install the missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+
+;;; Packages are listed alphabetically
+;;; not by usage or priority
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package counsel)
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
+
+(use-package doom-themes
+  :config
+  (setq doom-themes-enable-bold t)    ; if nil, bold is universally disabled
+  (setq     doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+  (doom-themes-org-config) ; Corrects (and improves) org-mode's native fontification.
+  )
+
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  (evil-mode 1)
+  :config
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+)
+
+(use-package evil-collection
+  :init
+  (evil-collection-init)
+)
+
+(use-package general
+  :init
+  (general-evil-setup t)
+)
+
+(use-package ivy
+  :init
+  (ivy-mode 1)
+)
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1)
+)
+
+(use-package magit)
+
+(use-package lsp-mode)
+
+(use-package projectile
+  :init
+  (projectile-mode)
+  :config
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-project-search-path '(("~/code" . 3)))
+)
+
+(use-package which-key
+  :init
+  (setq which-key-idle-delay 0) ;; always set before mode activation
+  (which-key-mode)
+)
