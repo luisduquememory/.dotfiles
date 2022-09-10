@@ -8,6 +8,7 @@ fish/completions/**
 emacs.d/*
 !emacs.d/custom.el
 !emacs.d/init.el
-!emacs.d/packages.el
+!emacs.d/packages
 !emacs.d/keybindings.el
 !emacs.d/lsp.el
+!emacs.d/dap.el

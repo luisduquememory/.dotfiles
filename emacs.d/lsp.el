@@ -1,10 +1,5 @@
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c s")
-  :config
-  (lsp-enable-which-key-integration t)
-)
+;; This is only the file a use for related configurations
+;; the initial use-package config is in package.el
 
 (require 'lsp-mode)
 

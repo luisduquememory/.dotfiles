@@ -1,5 +1,6 @@
-(load "~/.emacs.d/packages")
+(load "~/.emacs.d/packages/init")
 (load "~/.emacs.d/lsp")
+(load "~/.emacs.d/dap")
 (load "~/.emacs.d/keybindings")
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
