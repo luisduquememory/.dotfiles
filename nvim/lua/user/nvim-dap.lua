@@ -9,7 +9,6 @@ table.insert(require('dap').configurations.python, {
       {['localRoot'] = "${workspaceFolder}",
        ['remoteRoot'] = "./src",},
     }
-
   }
 )
 local dap, dapui = require("dap"), require("dapui")
