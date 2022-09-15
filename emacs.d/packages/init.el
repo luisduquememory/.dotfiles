@@ -61,6 +61,17 @@
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 )
 
+(use-package evil-collection
+  :after (evil)
+  :config
+  (setq evil-collection-mode-list '(dired))
+  (evil-collection-init)
+)
+
+(use-package evil-goggles
+  :config
+  (evil-goggles-mode)
+)
 ;; evil-motion-trainer
 (global-evil-motion-trainer-mode 1)
 (setq evil-motion-trainer-threshold 3)
@@ -70,11 +81,6 @@
   :config
   (global-evil-quickscope-mode 1)
 )
-
-;; (use-package evil-collection
-;;   :init
-;;   (evil-collection-init)
-;; )
 
 (use-package evil-nerd-commenter
   :bind ("s-/" . evilnc-comment-or-uncomment-lines))
