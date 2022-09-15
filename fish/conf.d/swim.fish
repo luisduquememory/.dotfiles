@@ -38,7 +38,7 @@ function scd -d "fuzzy find a plugin and cd into it"
     set dir $HOME/code/swimlane/
     set plugin (ls $dir  | fzf)
     cd $dir$plugin
-    vf activate swplugins
+    vf activate venv_
 end
 
 function gentests -d "generate tests for all tasks which has data already generated"
