@@ -100,8 +100,9 @@
   (ivy-rich-mode 1)
 )
 
-(use-package magit)
-
+(use-package magit
+  :config
+  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 (use-package projectile
   :init
@@ -110,6 +111,7 @@
   (setq projectile-enable-caching t)
   (setq projectile-completion-system 'ivy)
   (setq projectile-project-search-path '(("~/code" . 3)))
+  (setq projectile-switch-project-action 'projectile-dired)
 )
 
 (use-package typescript-mode
