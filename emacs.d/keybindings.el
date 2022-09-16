@@ -15,5 +15,6 @@
   "d" 'dap-hydra
   "p" 'projectile-command-map
   "SPC" 'projectile-find-file
+  "t" 'vterm-toggle
   "w" 'which-key-show-top-level
 )

@@ -41,8 +41,10 @@
 (dired up)
 (dired-goto-file dir))))))
 
-
-
-
 ;; keep buffers updates
 (global-auto-revert-mode t)
+
+ ;; Disable line numbers for some modes
+ ;; line numbers in fish produces odd behaviours
+  (dolist (mode '(org-mode-hook vterm-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))

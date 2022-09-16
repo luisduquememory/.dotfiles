@@ -123,6 +123,11 @@
   (dap-node-setup) ;; Automatically install node debug adapter if needed
 )
 
+(use-package vterm)
+
+(use-package vterm-toggle
+  :after vterm)
+
 (use-package which-key
   :init
   (setq which-key-idle-delay 0.3) ;; always set before mode activation
