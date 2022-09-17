@@ -12,3 +12,4 @@ emacs.d/*
 !emacs.d/keybindings.el
 !emacs.d/lsp.el
 !emacs.d/dap.el
+!emacs.d/dired.el

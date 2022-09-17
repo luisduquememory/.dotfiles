@@ -85,6 +85,11 @@
 (use-package evil-nerd-commenter
   :bind ("s-/" . evilnc-comment-or-uncomment-lines))
 
+(use-package exec-path-from-shell
+  :config
+  (when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize)))
+
 (use-package general
   :init
   (general-evil-setup t)
