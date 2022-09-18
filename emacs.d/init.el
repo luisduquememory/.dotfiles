@@ -26,6 +26,9 @@
 ;; keep buffers updates
 (global-auto-revert-mode t)
 
+;; autocomplete paired brackets
+(electric-pair-mode 1)
+
  ;; Disable line numbers for some modes
  ;; line numbers in fish produces odd behaviours
   (dolist (mode '(org-mode-hook vterm-mode-hook dired-mode-hook))
