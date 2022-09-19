@@ -5,16 +5,16 @@
 (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
 
 ;; General is a package, not a section
-(general-create-definer leader-definition
-  ;; :prefix my-leader
-  :prefix "SPC")
 
-(leader-definition
-  :keymaps 'normal
+
+;; available everywhere
+(general-define-key
+  :states '(normal)
+  :keymaps 'override ;; see https://github.com/noctuid/general.el/issues/99#issuecomment-360914335
+  :prefix "SPC"
   "." 'find-file
   "d" 'dap-hydra
   "p" 'projectile-command-map
   "SPC" 'projectile-find-file
   "t" 'vterm-toggle
-  "w" 'which-key-show-top-level
 )

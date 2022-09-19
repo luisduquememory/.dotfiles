@@ -93,6 +93,8 @@
 (use-package general
   :init
   (general-evil-setup t)
+  :config
+  (general-override-mode)
 )
 
 (use-package ivy
