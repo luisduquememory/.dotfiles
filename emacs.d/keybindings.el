@@ -17,4 +17,7 @@
   "p" 'projectile-command-map
   "SPC" 'projectile-find-file
   "t" 'vterm-toggle
+  "ww" 'evil-window-prev
+  "wl" 'evil-window-right
+  "wh" 'evil-window-left
 )

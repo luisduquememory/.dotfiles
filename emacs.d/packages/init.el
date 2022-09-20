@@ -143,6 +143,10 @@
   (lsp-enable-which-key-integration t)
 )
 
+
+(use-package yaml-mode
+  :mode "\\.ya?ml\\'")
+
 (use-package yasnippet
   :init
   (yas-global-mode 1)
