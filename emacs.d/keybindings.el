@@ -21,3 +21,15 @@
   "wl" 'evil-window-right
   "wh" 'evil-window-left
 )
+
+(general-define-key
+  :states '(normal)
+  ;; use this for a better dvorak experience
+  "t" 'evil-quickscope-find-char
+  "T" 'evil-quickscope-find-char-backward
+  "f" 'evil-quickscope-find-char-to
+  "F" 'evil-quickscope-find-char-to-backward
+  ;; general has a swap key option
+  ;; but this doesn't work for me, not sure why
+  ;; see here -> https://github.com/noctuid/general.el#key-translation
+)
