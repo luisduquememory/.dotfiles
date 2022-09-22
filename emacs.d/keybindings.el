@@ -13,6 +13,7 @@
   :keymaps 'override ;; see https://github.com/noctuid/general.el/issues/99#issuecomment-360914335
   :prefix "SPC"
   "." 'find-file
+  "bd" 'kill-this-buffer
   "d" 'dap-hydra
   "p" 'projectile-command-map
   "SPC" 'projectile-find-file
