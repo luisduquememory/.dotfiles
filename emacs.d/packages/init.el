@@ -74,7 +74,7 @@
 )
 ;; evil-motion-trainer
 (global-evil-motion-trainer-mode 1)
-(setq evil-motion-trainer-threshold 3)
+(setq evil-motion-trainer-threshold 4)
 
 (use-package evil-quickscope
   :after evil

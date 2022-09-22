@@ -1,6 +1,5 @@
 (load "~/.emacs.d/packages/init")
 (load "~/.emacs.d/lsp")
-(load "~/.emacs.d/dap")
 (load "~/.emacs.d/keybindings")
 (load "~/.emacs.d/dired")
 (setq custom-file "~/.emacs.d/custom.el")
@@ -31,5 +30,9 @@
 
  ;; Disable line numbers for some modes
  ;; line numbers in fish produces odd behaviours
-  (dolist (mode '(org-mode-hook vterm-mode-hook dired-mode-hook))
+  (dolist (mode '(vterm-mode-hook dired-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+;; org mode configs
+(setq org-todo-keywords
+  '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "NO NEEDED" "DONE" )))
