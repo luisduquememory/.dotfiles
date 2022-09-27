@@ -121,6 +121,14 @@
   (setq projectile-switch-project-action 'projectile-dired)
 )
 
+(use-package tree-sitter
+  :config
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+)
+
+(use-package tree-sitter-langs)
+
 (use-package typescript-mode
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp-deferred)
