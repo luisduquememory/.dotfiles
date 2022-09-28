@@ -16,6 +16,8 @@
   "bd" 'kill-buffer-and-window
   "d" 'dap-hydra
   "p" 'projectile-command-map
+  "psg" 'counsel-projectile-grep
+  "psr" 'counsel-projectile-rg
   "SPC" 'projectile-find-file
   "t" 'vterm-toggle
   "ww" 'evil-window-prev

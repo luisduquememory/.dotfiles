@@ -35,6 +35,9 @@
 
 (use-package counsel)
 
+(use-package counsel-projectile
+  :after projectile)
+
 (use-package dap-mode
   :config
   (setq dap-python-debugger 'debugpy)
