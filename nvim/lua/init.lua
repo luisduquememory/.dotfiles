@@ -7,6 +7,8 @@ require("user.nvim-dap")
 require("user.lualine")
 require("user.lsp")
 require("user.toggleterm")
+require("user.telescope")
+require("user.hydra")
 
 local g = vim.g
 local o = vim.o
@@ -36,3 +38,6 @@ set.relativenumber = true
 set.clipboard  = "unnamedplus"
 
 set.autoread = true
+
+-- this is used by which-key
+set.timeoutlen = 500

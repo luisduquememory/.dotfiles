@@ -2,7 +2,7 @@ require('dap-python').setup('/Users/luis.duque/.virtualenvs/debugpy/bin/python')
 table.insert(require('dap').configurations.python, {
     type = 'python',
     request = 'attach',
-    name = 'Connector',
+    name = 'remote attach: localhost -> 5678',
     host = 'localhost',
     port = 5678,
     pathMappings = {

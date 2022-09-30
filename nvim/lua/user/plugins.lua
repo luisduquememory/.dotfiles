@@ -21,10 +21,15 @@ return require("packer").startup(function()
             opt = true
         }
     }
-    -- Fuzzy finder
+    -- Telescope
     use {
         "nvim-telescope/telescope.nvim",
-        requires = {{"nvim-lua/plenary.nvim"}}
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            {"LinArcX/telescope-command-palette.nvim"},
+            {"nvim-telescope/telescope-project.nvim"},
+            {"nvim-telescope/telescope-file-browser.nvim"},
+        }
     }
     -- Set delay to single movements hjkl
     use "takac/vim-hardtime"
@@ -63,5 +68,16 @@ return require("packer").startup(function()
         {"L3MON4D3/LuaSnip"},
 		{"rafamadriz/friendly-snippets"}}
     }
+
+    -- which-key
+    use {
+        "folke/which-key.nvim",
+        config = function()
+          require("which-key").setup {}
+        end
+      }
+
+    -- hydra
+    use {"anuvyklack/hydra.nvim"}
 
 end)

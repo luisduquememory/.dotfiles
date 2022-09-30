@@ -1,36 +1,64 @@
-local function normal_map(k, v)
-    vim.keymap.set("n", k, v, { silent = false })
+local function map(m, k, v)
+    vim.keymap.set(m, k, v, { silent = false })
 end
 
-local function visual_map(k, v)
-    vim.keymap.set("v", k, v, { silent = false })
-end
--- Misc
-normal_map("<Leader>ve", ":e $MYVIMRC<CR>")
-normal_map("<Leader>vr", ":source $MYVIMRC<CR>")
-normal_map("<Leader>w", "<C-w>")
-normal_map("<Leader>l", ":Telescope live_grep <CR>")
+local leader_prefix = { prefix = "<leader>" }
+local wk = require("which-key")
+
 -- I changed f to t, is more confortable for me using dvorak
-normal_map("t", "f")
-normal_map("T", "F")
-normal_map("f", "t")
-normal_map("F", "T")
-visual_map("t", "f")
-visual_map("T", "F")
-visual_map("f", "t")
-visual_map("F", "T")
--- B Buffers and files
-normal_map("<Leader>bb", ":Telescope buffers <CR>")
-normal_map("<Leader>d", ":bd<CR>")
-normal_map("<Leader>f", ":Telescope find_files <CR>")
-normal_map("<Leader>F", ":Telescope git_files <CR>")
+map("n", "t", "f")
+map("n", "T", "F")
+map("n", "f", "t")
+map("n", "F", "T")
 
---debugger
-normal_map("<Leader>sc", ":lua require'dap'.continue()<CR>")
-normal_map("<Leader>sk", ":lua require'dap'.terminate()<CR>")
-normal_map("<Leader>sb", ":lua require'dap'.toggle_breakpoint()<CR>")
-normal_map("<Leader>sB", ":lua require'dap'.clear_breakpoints()<CR>")
-normal_map("<Leader>so", ":lua require'dap'.step_over()<CR>")
-normal_map("<Leader>sO", ":lua require'dap'.step_out()<CR>")
-normal_map("<Leader>si", ":lua require'dap'.step_into()<CR>")
-normal_map("<Leader>sr", ":lua require'dap'.repl.toggle()<CR><C-w>j")
+map("v", "t", "f")
+map("v", "T", "F")
+map("v", "f", "t")
+map("v", "F", "T")
+
+-- I haven't found how to do a double space with which-key yet
+map("n", "<Leader><Leader>", ":Telescope find_files <CR>")
+
+-- globals
+wk.register({
+	c = { ":Telescope command_palette<CR>", "Command palette" },
+  }, leader_prefix)
+
+-- projects
+wk.register({
+  p = {
+    name = "project", -- group name
+    f = {":Telescope git_files<CR>", "Find files avoiding gitignores"},
+	g = {":Telescope live_grep <CR>", "Grep Search"},
+	p = {":lua require'telescope'.extensions.project.project{}<CR>", "Switch project" },
+  },
+}, leader_prefix)
+
+-- buffers
+wk.register({
+	b = {
+	  name = "buffers", -- group name
+	  b = {":Telescope buffers <CR>", "Find buffer"},
+	  d = {":bd<CR>", "Close buffer"}
+	},
+}, leader_prefix)
+
+-- lsp
+wk.register({
+	s = {
+	  name = "LSP", -- group name
+	  K = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Displays hover information about a symbol"},
+      a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Select code action"},
+      d = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Show diagnostics"},
+      g = {
+        name = "goto",
+        D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration"},
+        d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Definition"},
+        i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementations"},
+        o = {"<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type's definition"},
+        r = {"<cmd>lua vim.lsp.buf.references()<CR>", "References"},
+      },
+      r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol"},
+      s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Display signature information"},
+	},
+}, leader_prefix)
