@@ -36,3 +36,6 @@
 ;; org mode configs
 (setq org-todo-keywords
   '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "NO NEEDED" "DONE" )))
+
+;; js-mode
+(setq js-indent-level 2)

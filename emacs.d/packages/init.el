@@ -58,6 +58,7 @@
 
 (use-package evil
   :init
+  (setq evil-want-C-u-scroll t)
   (setq evil-want-keybinding nil)
   (evil-mode 1)
   :config
@@ -110,6 +111,9 @@
   (ivy-rich-mode 1)
 )
 
+(use-package json-mode
+:hook (json-mode . lsp-deferred))
+
 (use-package magit
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
@@ -156,7 +160,8 @@
 
 
 (use-package yaml-mode
-  :mode "\\.ya?ml\\'")
+  :mode "\\.ya?ml\\'"
+  :hook (yaml-mode . lsp-deferred))
 
 (use-package yasnippet
   :init
