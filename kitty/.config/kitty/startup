@@ -5,7 +5,7 @@ launch fish
 
 new_tab editor
 title editor
-launch nvim
+launch --hold nvim
 
 new_tab git
 title git
