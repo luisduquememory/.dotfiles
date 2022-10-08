@@ -1,0 +1,16 @@
+# startup.conf
+new_tab shell
+title shell
+launch fish
+
+new_tab editor
+title editor
+launch nvim
+
+new_tab git
+title git
+launch fish
+
+new_tab files
+title files
+launch vifm
