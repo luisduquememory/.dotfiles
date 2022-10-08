@@ -5,7 +5,7 @@ extensions = {
         {"Sync", "PackerSync"}
     },
     {"Vim",
-        { "exit", ":q"},
+        {"exit", ":qa"},
     }
     },
     project = {
@@ -21,3 +21,4 @@ extensions = {
 
 require('telescope').load_extension('command_palette')
 require'telescope'.load_extension('project')
+require("telescope").load_extension("file_browser")

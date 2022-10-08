@@ -24,12 +24,8 @@ return require("packer").startup(function()
     -- Telescope
     use {
         "nvim-telescope/telescope.nvim",
-        requires = {
-            {"nvim-lua/plenary.nvim"},
-            {"LinArcX/telescope-command-palette.nvim"},
-            {"nvim-telescope/telescope-project.nvim"},
-            {"nvim-telescope/telescope-file-browser.nvim"},
-        }
+        requires = {{"nvim-lua/plenary.nvim"}, {"LinArcX/telescope-command-palette.nvim"},
+                    {"nvim-telescope/telescope-project.nvim"}, {"nvim-telescope/telescope-file-browser.nvim"}}
     }
     -- Set delay to single movements hjkl
     use "takac/vim-hardtime"
@@ -54,30 +50,20 @@ return require("packer").startup(function()
     -- LSP
     use {
         "VonHeikemen/lsp-zero.nvim",
-        requires = {
-        {"neovim/nvim-lspconfig"},
-		{"williamboman/nvim-lsp-installer"},
-		-- Autocompletion
-        {"hrsh7th/nvim-cmp"},
-		{"hrsh7th/cmp-buffer"},
-		{"hrsh7th/cmp-path"},
-		{"saadparwaiz1/cmp_luasnip"},
-        {"hrsh7th/cmp-nvim-lsp"},
-		{"hrsh7th/cmp-nvim-lua"},
-		-- Snippets
-        {"L3MON4D3/LuaSnip"},
-		{"rafamadriz/friendly-snippets"}}
+        requires = {{"neovim/nvim-lspconfig"}, {"williamboman/nvim-lsp-installer"}, {"hrsh7th/nvim-cmp"},
+                    {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"}, {"saadparwaiz1/cmp_luasnip"},
+                    {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-nvim-lua"}, {"L3MON4D3/LuaSnip"},
+                    {"rafamadriz/friendly-snippets"}}
     }
-
     -- which-key
     use {
         "folke/which-key.nvim",
         config = function()
-          require("which-key").setup {}
+            require("which-key").setup {}
         end
-      }
-
+    }
     -- hydra
     use {"anuvyklack/hydra.nvim"}
-
+    -- GIT
+    use {"tpope/vim-fugitive"}
 end)

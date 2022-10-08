@@ -22,6 +22,7 @@ map("n", "<Leader><Leader>", ":Telescope find_files <CR>")
 -- globals
 wk.register({
 	c = { ":Telescope command_palette<CR>", "Command palette" },
+	q = { ":Telescope quickfix<CR>", "QuickFix" },
   }, leader_prefix)
 
 -- projects
@@ -43,6 +44,23 @@ wk.register({
 	},
 }, leader_prefix)
 
+
+-- Git
+wk.register({
+	g = {
+	  name = "Git", -- group name
+	  g = {":Git<CR>:on<CR>", "Git status"},
+	},
+}, leader_prefix)
+
+-- hydra
+wk.register({
+	h = {
+	  name = "hydras",
+	  d = {":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP"},
+	},
+}, leader_prefix)
+
 -- lsp
 wk.register({
 	s = {
@@ -53,10 +71,11 @@ wk.register({
       g = {
         name = "goto",
         D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration"},
-        d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Definition"},
-        i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementations"},
-        o = {"<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type's definition"},
-        r = {"<cmd>lua vim.lsp.buf.references()<CR>", "References"},
+        d = {":Telescope lsp_definitions<CR>", "Definition"},
+        i = {":Telescope lsp_implementations<CR>", "Implementations"},
+        o = {":Telescope lsp_type_definitions<CR>", "Type's definition"},
+        r = {":Telescope lsp_references<CR>", "References"},
+        s = {":Telescope lsp_document_symbols<CR>", "Document symbols"},
       },
       r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol"},
       s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Display signature information"},
