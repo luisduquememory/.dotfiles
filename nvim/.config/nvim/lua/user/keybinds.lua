@@ -51,6 +51,8 @@ wk.register({
 	g = {
 	  name = "Git", -- group name
 	  g = {":Git<CR>:on<CR>", "Git status"},
+	  p = {":Git push<CR>", "Git push"},
+	  P = {":Git push --force<CR>", "Git push --force"},
 	},
 }, leader_prefix)
 
