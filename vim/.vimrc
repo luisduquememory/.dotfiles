@@ -19,5 +19,4 @@ vnoremap t f
 vnoremap T F
 vnoremap f t
 vnoremap F T
-nnoremap <Leader>ww :w<CR>
 let g:highlightedyank_highlight_duration = 500
