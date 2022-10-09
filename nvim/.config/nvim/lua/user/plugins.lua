@@ -24,8 +24,13 @@ return require("packer").startup(function()
     -- Telescope
     use {
         "nvim-telescope/telescope.nvim",
-        requires = {{"nvim-lua/plenary.nvim"}, {"LinArcX/telescope-command-palette.nvim"},
-                    {"nvim-telescope/telescope-project.nvim"}, {"nvim-telescope/telescope-file-browser.nvim"}}
+        requires = {
+        {"LinArcX/telescope-command-palette.nvim"},
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-telescope/telescope-dap.nvim"},
+        {"nvim-telescope/telescope-file-browser.nvim"},
+        {"nvim-telescope/telescope-project.nvim"},
+    }
     }
     -- Set delay to single movements hjkl
     use "takac/vim-hardtime"

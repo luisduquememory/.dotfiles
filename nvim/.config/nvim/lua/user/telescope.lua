@@ -1,6 +1,9 @@
 require('telescope').setup({
 extensions = {
     command_palette = {
+    {"Global",
+        {"cd to .dotfiles", "cd $HOME/.dotfiles"}
+    },
     {"Packer",
         {"Sync", "PackerSync"}
     },
@@ -22,3 +25,4 @@ extensions = {
 require('telescope').load_extension('command_palette')
 require'telescope'.load_extension('project')
 require("telescope").load_extension("file_browser")
+require('telescope').load_extension('dap')
