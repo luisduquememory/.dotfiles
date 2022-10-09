@@ -1,4 +1,4 @@
-require('dap-python').setup('/Users/luis.duque/.virtualenvs/debugpy/bin/python')
+require('dap-python').setup('$HOME/.virtualenvs/debugpy/bin/python')
 table.insert(require('dap').configurations.python, {
     type = 'python',
     request = 'attach',
