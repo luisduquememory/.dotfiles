@@ -25,3 +25,10 @@ toggleterm.setup({
 		},
 	},
 })
+
+local Terminal  = require('toggleterm.terminal').Terminal
+local vifm = Terminal:new({ cmd = "vifm .", hidden = true })
+
+function _vifm_toggle()
+  vifm:toggle()
+end

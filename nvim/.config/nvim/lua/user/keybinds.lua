@@ -21,8 +21,9 @@ map("n", "<Leader><Leader>", ":Telescope find_files <CR>")
 
 -- globals
 wk.register({
-	c = { ":Telescope command_palette<CR>", "Command palette" },
-	q = { ":Telescope quickfix<CR>", "QuickFix" },
+	c = {":Telescope command_palette<CR>", "Command palette" },
+	q = {":Telescope quickfix<CR>", "QuickFix" },
+	d = {":lua _vifm_toggle()<CR>", "Vifm"},
   }, leader_prefix)
 
 -- projects
