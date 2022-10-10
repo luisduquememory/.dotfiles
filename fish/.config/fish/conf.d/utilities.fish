@@ -13,7 +13,7 @@ function cleanenv -d "remove all packages in the current python interpreter"
 end
 
 function prepy -d "prepare a python repository with my personal configs"
-    ln -sv $HOME/code/configs/pre-commit-config.yaml ./.pre-commit-config.yaml
+  ln -sv $HOME/.dotfiles/pre-commit-config.yaml ./.pre-commit-config.yaml
 	python -m pip install --upgrade pip
 	python -m pip install pre-commit
 	pre-commit install
