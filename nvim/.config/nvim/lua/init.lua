@@ -19,8 +19,6 @@ require("user.keybinds") -- Always mapleader before any keybind
 
 vim.cmd[[colorscheme dracula]]
 
-g.hardtime_default_on = 1000
-
 -- Indentation
 set.tabstop = 2
 set.shiftwidth = 2

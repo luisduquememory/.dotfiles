@@ -32,8 +32,6 @@ return require("packer").startup(function()
         {"nvim-telescope/telescope-project.nvim"},
     }
     }
-    -- Set delay to single movements hjkl
-    use "takac/vim-hardtime"
     -- Fish sintax support
     use "dag/vim-fish"
     -- Autopair symbols

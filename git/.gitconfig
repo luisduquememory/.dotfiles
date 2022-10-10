@@ -7,5 +7,5 @@
 	directory = $HOME/src/neovim
 [alias]
 	ce = commit --amend --no-edit
-  p = push
-  pf = push --force
+  	p = push
+  	pf = push --force
