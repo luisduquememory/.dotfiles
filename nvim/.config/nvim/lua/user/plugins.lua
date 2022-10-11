@@ -69,4 +69,6 @@ return require("packer").startup(function()
     use {"anuvyklack/hydra.nvim"}
     -- GIT
     use {"tpope/vim-fugitive"}
+    -- indentation text object
+    use "michaeljsmith/vim-indent-object"
 end)
