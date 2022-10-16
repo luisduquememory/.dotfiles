@@ -1,38 +1,28 @@
-local function map(m, k, v)
-    vim.keymap.set(m, k, v, { silent = false })
+local function map(modes, keybinding, action)
+	for _, mode in ipairs(modes) do
+		vim.keymap.set(mode, keybinding, action, { silent = false })
+	end
 end
 
 local leader_prefix = { prefix = "<leader>" }
 local wk = require("which-key")
 
--- I changed f to t, is more confortable for me using dvorak
-map("n", "t", "f")
-map("n", "T", "F")
-map("n", "f", "t")
-map("n", "F", "T")
-
-map("v", "t", "f")
-map("v", "T", "F")
-map("v", "f", "t")
-map("v", "F", "T")
-
 -- I haven't found how to do a double space with which-key yet
-map("n", "<Leader><Leader>", ":Telescope find_files <CR>")
+map({"n"}, "<Leader><Leader>", ":Telescope find_files <CR>")
 
 -- globals
 wk.register({
 	c = {":Telescope command_palette<CR>", "Command palette" },
 	q = {":Telescope quickfix<CR>", "QuickFix" },
-	d = {":lua _vifm_toggle()<CR>", "Vifm"},
+	o = {":on<CR>", "Only"},
   }, leader_prefix)
 
 -- projects
 wk.register({
   p = {
     name = "project", -- group name
-    f = {":Telescope git_files<CR>", "Find files avoiding gitignores"},
-	g = {":Telescope live_grep <CR>", "Grep Search"},
-	p = {":lua require'telescope'.extensions.project.project{}<CR>", "Switch project" },
+    g = {":Telescope live_grep <CR>", "Grep Search"},
+    p = {":lua require'telescope'.extensions.project.project{}<CR>", "Switch project" },
   },
 }, leader_prefix)
 
@@ -41,18 +31,7 @@ wk.register({
 	b = {
 	  name = "buffers", -- group name
 	  b = {":Telescope buffers <CR>", "Find buffer"},
-	  d = {":bd<CR>", "Close buffer"}
-	},
-}, leader_prefix)
-
-
--- Git
-wk.register({
-	g = {
-	  name = "Git", -- group name
-	  g = {":Git<CR>:on<CR>", "Git status"},
-	  p = {":Git push<CR>", "Git push"},
-	  P = {":Git push --force<CR>", "Git push --force"},
+	  d = {":bd<CR>", "Close buffer"},
 	},
 }, leader_prefix)
 
@@ -82,5 +61,19 @@ wk.register({
       },
       r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol"},
       s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Display signature information"},
+	},
+}, leader_prefix)
+
+-- floaterm
+local create_options = "--height=0.9 --width=0.9"
+map({"t", "n"}, "<C-T>", "<CMD>FloatermToggle<CR>")
+map({"t"}, "<C-N>", "<CMD>FloatermNext<CR>")
+map({"t"}, "<C-P>", "<CMD>FloatermPrev<CR>")
+wk.register({
+	t = {
+	  name = "floaterm",
+	  v = {":FloatermNew " .. create_options .. " vifm<CR>", "Vifm"},
+	  l = {":FloatermNew " .. create_options .. " lazygit<CR>", "Lazygit"},
+	  n = {":FloatermNew " .. create_options .. "<CR>", "New"},
 	},
 }, leader_prefix)

@@ -1,25 +1,29 @@
 require('telescope').setup({
-extensions = {
-    command_palette = {
-    {"Global",
-        {"cd to .dotfiles", "cd $HOME/.dotfiles"}
-    },
-    {"Packer",
-        {"Sync", "PackerSync"}
-    },
-    {"Vim",
-        {"exit", ":qa"},
-    }
-    },
-    project = {
-        base_dirs = {
-          {path = '~/code', max_depth = 4},
+    pickers = {
+        find_files = {
+            hidden = true,
+            no_ignore = true,
+            file_ignore_patterns = {
+                ".git",
+                ".idea"
+            },
         },
-        hidden_files = false, -- default: false
-        theme = "dropdown",
-        order_by = "asc"
-      }
-}
+    },
+    extensions = {
+        command_palette = {
+            {"Global", {"cd to .dotfiles", "cd $HOME/.dotfiles"}},
+            {"Packer", {"Sync", "PackerSync"}},
+            {"Vim", {"exit", ":qa"}}},
+        project = {
+            base_dirs = {{
+                path = '~/code',
+                max_depth = 4
+            }},
+            hidden_files = false, -- default: false
+            theme = "dropdown",
+            order_by = "asc"
+        }
+    }
 })
 
 require('telescope').load_extension('command_palette')

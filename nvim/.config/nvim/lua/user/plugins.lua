@@ -12,7 +12,7 @@ return require("packer").startup(function()
     -- Indent lines
     use "lukas-reineke/indent-blankline.nvim"
     -- Toggleterm
-    use "akinsho/toggleterm.nvim"
+    use "voldikss/vim-floaterm"
     -- status bar
     use {
         "nvim-lualine/lualine.nvim",
@@ -67,8 +67,6 @@ return require("packer").startup(function()
     }
     -- hydra
     use {"anuvyklack/hydra.nvim"}
-    -- GIT
-    use {"tpope/vim-fugitive"}
     -- indentation text object
     use "michaeljsmith/vim-indent-object"
 end)

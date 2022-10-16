@@ -6,7 +6,6 @@ require("user.treesitter")
 require("user.nvim-dap")
 require("user.lualine")
 require("user.lsp")
-require("user.toggleterm")
 require("user.telescope")
 require("user.hydras.dap")
 
@@ -18,6 +17,10 @@ g.mapleader = " "
 require("user.keybinds") -- Always mapleader before any keybind
 
 vim.cmd[[colorscheme dracula]]
+
+-- I'm not sure how to translate this to lua syntax
+-- this enabled highlight on yank
+vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 
 -- Indentation
 set.tabstop = 2
@@ -36,6 +39,13 @@ set.relativenumber = true
 set.clipboard  = "unnamedplus"
 
 set.autoread = true
+set.syntax = "enabled"
 
 -- this is used by which-key
 set.timeoutlen = 500
+
+-- this enable letters autoincrementing
+set.nrformats = "bin,hex,alpha"
+
+-- GUI font
+set.guifont = "Fira Code:h17"
