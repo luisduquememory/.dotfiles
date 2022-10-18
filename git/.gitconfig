@@ -3,8 +3,15 @@
 	email = luisfpetrucci@gmail.com
 [core]
 	editor = vim
+  	pager = delta
+[delta]
+  	line-numbers = true
 [safe]
 	directory = $HOME/src/neovim
+[merge]
+  	conflictstyle = diff3
+[diff]
+  	colorMoved = default
 [alias]
 	ce = commit --amend --no-edit
   	p = push
