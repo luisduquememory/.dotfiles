@@ -1,0 +1,2 @@
+export PYENV_VERSION="3.10.6"
+export NEOVIDE_MULTIGRID="full"
