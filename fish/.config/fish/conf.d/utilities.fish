@@ -1,4 +1,6 @@
 abbr nv "nvim"
+alias mvim "nvim" # this is to handle a bug on floaterm
+alias neovide "neovide --multigrid &"
 
 function pycount -d "run my current guitar practice count"
     python $HOME/Documents/scripts/counter/count.py
@@ -20,11 +22,6 @@ function prepy -d "prepare a python repository with my personal configs"
 	echo '.pre-commit-config.yaml' >> .gitignore
 end
 
-function pypath -d "add the current directory as PYTHONPATH"
-  set -e PYTHONPATH
-	set -Ux PYTHONPATH $PWD
-	set --show PYTHONPATH
-end
 
 function buildnvim -d "build nvim from source"
   echo "Entering in neovim source folder..."
