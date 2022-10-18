@@ -10,13 +10,4 @@ call plug#end()
 set number relativenumber
 set hlsearch
 set cursorline
-let mapleader=" "
-nnoremap t f
-nnoremap T F
-nnoremap f t
-nnoremap F T
-vnoremap t f
-vnoremap T F
-vnoremap f t
-vnoremap F T
 let g:highlightedyank_highlight_duration = 500
