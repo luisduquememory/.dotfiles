@@ -25,7 +25,6 @@ return require("packer").startup(function()
     use {
         "nvim-telescope/telescope.nvim",
         requires = {
-        {"LinArcX/telescope-command-palette.nvim"},
         {"nvim-lua/plenary.nvim"},
         {"nvim-telescope/telescope-dap.nvim"},
         {"nvim-telescope/telescope-file-browser.nvim"},
@@ -67,6 +66,10 @@ return require("packer").startup(function()
     }
     -- hydra
     use {"anuvyklack/hydra.nvim"}
+
     -- indentation text object
     use "michaeljsmith/vim-indent-object"
+
+    -- git
+    use "tpope/vim-fugitive"
 end)

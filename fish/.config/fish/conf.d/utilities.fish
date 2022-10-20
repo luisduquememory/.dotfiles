@@ -1,6 +1,8 @@
 abbr nv "nvim"
+abbr nvp "nvim --headless +PackerSync +qa"
 alias mvim "nvim" # this is to handle a bug on floaterm
 alias neovide "neovide --multigrid &"
+alias muxi "tmuxinator development"
 
 function pycount -d "run my current guitar practice count"
     python $HOME/Documents/scripts/counter/count.py
@@ -24,6 +26,8 @@ end
 
 
 function buildnvim -d "build nvim from source"
+  echo "Saving current version"
+  set old_version (nvim --version | grep NVIM)
   echo "Entering in neovim source folder..."
   cd ~/src/neovim
   echo "Pulling master branch..."
@@ -34,8 +38,11 @@ function buildnvim -d "build nvim from source"
   make CMAKE_BUILD_TYPE=Release
   echo "Running make install ..."
   sudo make install
-  echo "Displaying post-build version and build type..."
-  nvim --version
+  set new_version (nvim --version | grep NVIM)
+  echo "Previous version was: "
+  echo $old_version
+  echo "New version is: "
+  echo $new_version
   ./build/bin/nvim --version | grep ^Build
   echo "Returning to previous directory..."
   cd -

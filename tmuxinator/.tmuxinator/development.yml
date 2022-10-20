@@ -1,0 +1,10 @@
+# $HOME/.tmuxinator/development.yml
+
+name: development
+root: ~/
+
+windows:
+  - editor: nvim
+  - editor: nvim
+  - vifm: vifm
+  - shell: #

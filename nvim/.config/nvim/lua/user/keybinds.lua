@@ -1,3 +1,5 @@
+local floaterm_dimensions = "--height=0.9 --width=0.9"
+
 local function map(modes, keybinding, action)
 	for _, mode in ipairs(modes) do
 		vim.keymap.set(mode, keybinding, action, { silent = false })
@@ -32,6 +34,10 @@ wk.register({
 	  name = "buffers", -- group name
 	  b = {":Telescope buffers <CR>", "Find buffer"},
 	  d = {":bd<CR>", "Close buffer"},
+    f = {
+      name = "format",
+      j = {"<CMD>%! jq .<CR><CMD>w<CR>", "json with jq"},
+    }
 	},
 }, leader_prefix)
 
@@ -65,15 +71,21 @@ wk.register({
 }, leader_prefix)
 
 -- floaterm
-local create_options = "--height=0.9 --width=0.9"
 map({"t", "n"}, "<C-T>", "<CMD>FloatermToggle<CR>")
 map({"t"}, "<C-N>", "<CMD>FloatermNext<CR>")
 map({"t"}, "<C-P>", "<CMD>FloatermPrev<CR>")
 wk.register({
 	t = {
 	  name = "floaterm",
-	  v = {":FloatermNew " .. create_options .. " vifm<CR>", "Vifm"},
-	  l = {":FloatermNew " .. create_options .. " lazygit<CR>", "Lazygit"},
-	  n = {":FloatermNew " .. create_options .. "<CR>", "New"},
+	  v = {":FloatermNew " .. floaterm_dimensions .. " vifm<CR>", "Vifm"},
+	  n = {":FloatermNew " .. floaterm_dimensions .. "<CR>", "New"},
+	},
+}, leader_prefix)
+
+-- git
+wk.register({
+	g = {
+	  name = "Git utils",
+	  r = {":GMove ", "Rename current file"},
 	},
 }, leader_prefix)
