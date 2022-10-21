@@ -7,8 +7,6 @@ return require("packer").startup(function()
     use "wbthomason/packer.nvim"
     -- Color schema
     use "Mofiqul/dracula.nvim"
-    -- Quick-Scope
-    use "unblevable/quick-scope"
     -- Indent lines
     use "lukas-reineke/indent-blankline.nvim"
     -- Toggleterm
