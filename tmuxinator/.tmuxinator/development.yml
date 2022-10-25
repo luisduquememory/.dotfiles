@@ -5,6 +5,5 @@ root: ~/
 
 windows:
   - editor: nvim
-  - editor: nvim
   - vifm: vifm
   - shell: #
