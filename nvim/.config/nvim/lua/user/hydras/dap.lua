@@ -2,12 +2,13 @@ local Hydra = require('hydra')
 local dap = require'dap'
 
 local hint = [[
-Steps       Session             Breakpoints
-_n_: over     _s_: start/continue   _b_: toggle	 
-_i_: into     _x_: quit	        _B_: clear all
-_o_: out      _X_: stop	        _l_: list
-_c_: cursor
------------------------------------------------
+  Steps       Session             Breakpoints     Windows
+  _n_: over     _s_: start/continue   _b_: toggle	_j_: down
+  _i_: into     _x_: quit	        _B_: clear all    _k_: up
+  _o_: out      _X_: stop	        _L_: list         _h_: left
+  _c_: cursor   _r_: repl                             _l_: right
+
+------------------------------------------------------------
 _C_: commands _q_: exit
 ]]
 
@@ -37,8 +38,13 @@ local dap_hydra = Hydra({
       { 'q', nil, { exit = true, nowait = true } },
 
       { 'B', dap.clear_breakpoints, { silent = true } },
-      { 'l', ":lua require'dap'.list_breakpoints()<CR>:Telescope quickfix<CR>", { silent = true } },
+      { 'L', ":lua require'dap'.list_breakpoints()<CR>:Telescope quickfix<CR>", { silent = true } },
       { 'C', ":Telescope dap commands<CR>" },
+      { 'r', ":lua require'dap'.repl.open()<CR>" },
+      { 'j', "<C-w>j" },
+      { 'k', "<C-w>k" },
+      { 'h', "<C-w>h" },
+      { 'l', "<C-w>l" },
    }
 })
 Hydra.spawn = function(head)
