@@ -1,7 +1,7 @@
 # $HOME/.tmuxinator/development.yml
 
 name: development
-root: ~/
+root: .
 
 windows:
   - editor: nvim
