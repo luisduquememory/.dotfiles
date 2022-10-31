@@ -17,6 +17,7 @@ wk.register({
 	c = {":Telescope command_palette<CR>", "Command palette" },
 	q = {":Telescope quickfix<CR>", "QuickFix" },
 	o = {":on<CR>", "Only"},
+	h = {":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP"},
   }, leader_prefix)
 
 -- projects
@@ -38,14 +39,6 @@ wk.register({
       name = "format",
       j = {"<CMD>%! jq .<CR><CMD>w<CR>", "json with jq"},
     }
-	},
-}, leader_prefix)
-
--- hydra
-wk.register({
-	h = {
-	  name = "hydras",
-	  d = {":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP"},
 	},
 }, leader_prefix)
 

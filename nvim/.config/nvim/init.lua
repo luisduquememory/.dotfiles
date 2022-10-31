@@ -7,7 +7,7 @@ require("user.nvim-dap")
 require("user.lualine")
 require("user.lsp")
 require("user.telescope")
-require("user.hydras.dap")
+require("user.hydra")
 
 local g = vim.g
 local o = vim.o
