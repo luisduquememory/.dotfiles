@@ -14,5 +14,7 @@
   	colorMoved = default
 [alias]
 	ce = commit --amend --no-edit
-  	p = push
-  	pf = push --force
+	co = checkout
+	cb = checkout -b
+	p = push
+	pf = push --force
