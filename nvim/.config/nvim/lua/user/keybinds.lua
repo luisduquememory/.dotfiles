@@ -80,6 +80,7 @@ wk.register({
 	g = {
 	  name = "Git utils",
 	  r = {":GMove ", "Rename current file"},
-      a = {":Git add % <CR>", "Add current file"},
+	  a = {":Git add % <CR>", "Add current file"},
+	  b = {":Git blame<CR>", "Add current file"},
 	},
 }, leader_prefix)
