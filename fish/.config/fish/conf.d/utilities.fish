@@ -5,7 +5,7 @@ alias neovide "neovide --multigrid &"
 alias muxi "tmuxinator development"
 
 function pycount -d "run my current guitar practice count"
-    python $HOME/Documents/scripts/counter/count.py
+    python $HOME/Documents/scripts/counter/count.py $argv
 end
 
 function dcrmi -d "delete all docker images"
