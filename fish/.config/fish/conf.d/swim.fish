@@ -11,16 +11,16 @@ abbr swv "swsdk integration validate -s"
 abbr tur "tsdk action run --build -a"
 
 function swd -d "debug task with local container"
-    # select the task to debug
-    set task (path basename (ls ./imports/**.py  | fzf)) # see https://fishshell.com/docs/current/cmds/path.html
-    set task (path change-extension '' $task)
+  # select the task to debug
+  set task (path basename (ls ./imports/**.py  | fzf)) # see https://fishshell.com/docs/current/cmds/path.html
+  set task (path change-extension '' $task)
 	# Build the container
-    echo "Building docker image"
-	docker build -f $HOME/code/swimlane/sdk-run/Dockerfile --build-arg PYTHON_VERSION=3.7  -t local/sdk-cli-run:3.7 $HOME/code/swimlane/sdk-run
-    echo "Saving imagen ID"
+  echo "Building docker image"
+  docker build -f $HOME/code/swimlane/sdk-run/Dockerfile --build-arg PYTHON_VERSION=3.7  -t local/sdk-cli-run:3.7 $HOME/code/swimlane/sdk-run
+  echo "Saving imagen ID"
 	set RUNIMAGE (docker images -a | grep local/sdk-cli-run | awk '{print $3}')
 	echo "Running task with local image and debug flag"
-    swsdk task run -s --verbose -n $task -s -i $RUNIMAGE --debug code
+  swsdk task run -s --verbose -n $task -s -i $RUNIMAGE --debug code
 end
 
 function scd -d "fuzzy find a plugin and cd into it"
