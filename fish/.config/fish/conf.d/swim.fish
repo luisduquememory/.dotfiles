@@ -1,6 +1,4 @@
 # swimlane
-abbr genin "swsdk task generate-inputs -p"
-abbr genout "swsdk task generate-outputs"
 abbr stest "swsdk integration test -s"
 abbr swb "swsdk integration build -s -v 3.7"
 abbr swg "swsdk task run -s  --generate"
@@ -8,7 +6,9 @@ abbr swr "swsdk task run -s --verbose"
 abbr swv "swsdk integration validate -s"
 
 # turbine
-abbr tur "tsdk action run --build -a"
+abbr tur "tsdk action run local"
+abbr genin "tsdk action generate input"
+abbr genout "tsdk action generate output"
 
 function swd -d "debug task with local container"
   # select the task to debug
