@@ -14,10 +14,12 @@ map({"n"}, "<Leader><Leader>", ":Telescope find_files <CR>")
 
 -- globals
 wk.register({
-	c = {":Telescope command_palette<CR>", "Command palette" },
+	c = {":%s///ng<CR>", "Full search count" },
 	q = {":Telescope quickfix<CR>", "QuickFix" },
 	o = {":on<CR>", "Only"},
 	h = {":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP"},
+    d = {'"_d', "Delete moving to _"},
+    r = {":Telescope registers<CR>", "show registers"},
   }, leader_prefix)
 
 -- projects
@@ -34,7 +36,8 @@ wk.register({
 	b = {
 	  name = "buffers", -- group name
 	  b = {":Telescope buffers <CR>", "Find buffer"},
-	  d = {":bd<CR>", "Close buffer"},
+	  d = {":bd<CR>", "Close current"},
+      c = {":bufdo bwipeout<CR>", "Close all"},
     f = {
       name = "format",
       j = {"<CMD>%! jq .<CR><CMD>w<CR>", "json with jq"},
@@ -65,8 +68,8 @@ wk.register({
 
 -- floaterm
 map({"t", "n"}, "<C-T>", "<CMD>FloatermToggle<CR>")
-map({"t"}, "<C-N>", "<CMD>FloatermNext<CR>")
-map({"t"}, "<C-P>", "<CMD>FloatermPrev<CR>")
+map({"t"}, "<C-S>", "<CMD>FloatermNext<CR>")
+map({"t"}, "<C-H>", "<CMD>FloatermPrev<CR>")
 wk.register({
 	t = {
 	  name = "floaterm",
