@@ -17,6 +17,7 @@ wk.register({
 	c = {":%s///ng<CR>", "Full search count" },
 	q = {":Telescope quickfix<CR>", "QuickFix" },
 	o = {":on<CR>", "Only"},
+	n = {":noh<CR>", "No search selection"},
 	h = {":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP"},
     d = {'"_d', "Delete moving to _"},
     r = {":Telescope registers<CR>", "show registers"},
