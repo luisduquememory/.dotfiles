@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
         {"nvim-telescope/telescope-project.nvim"},
     }
     }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     -- Fish sintax support
     use "dag/vim-fish"
     -- Autopair symbols
@@ -70,4 +71,5 @@ return require("packer").startup(function(use)
 
     -- git
     use "tpope/vim-fugitive"
+
 end)
