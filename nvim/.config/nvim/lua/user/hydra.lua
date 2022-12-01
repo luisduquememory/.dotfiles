@@ -5,7 +5,7 @@ local hint = [[
   Steps       Session             Breakpoints     Windows
   _n_: over     _s_: start/continue   _b_: toggle	_j_: down
   _i_: into     _x_: quit	        _B_: clear all    _k_: up
-  _o_: out      _X_: stop	        _L_: list         _h_: left
+  _o_: out      _X_: stop	        _P_: list         _h_: left
   _c_: cursor   _r_: repl                             _l_: right
 
 ------------------------------------------------------------
@@ -38,13 +38,20 @@ local dap_hydra = Hydra({
       { 'q', nil, { exit = true, nowait = true } },
 
       { 'B', dap.clear_breakpoints, { silent = true } },
-      { 'L', ":lua require'dap'.list_breakpoints()<CR>:Telescope quickfix<CR>", { silent = true } },
+      { 'P', ":lua require'dap'.list_breakpoints()<CR>:Telescope quickfix<CR>", { silent = true } },
       { 'C', ":Telescope dap commands<CR>" },
       { 'r', ":lua require'dap'.repl.open()<CR>" },
+
+      -- move between windows
       { 'j', "<C-w>j" },
       { 'k', "<C-w>k" },
       { 'h', "<C-w>h" },
       { 'l', "<C-w>l" },
+      -- resize windows
+      { "H", "<C-w>3<" },
+      { "L", "<C-w>3>" },
+      { "K", "<C-w>2+" },
+      { "J", "<C-w>2-" },
    }
 })
 Hydra.spawn = function(head)
