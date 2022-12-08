@@ -41,3 +41,21 @@ end
 function gensteps -d "generate test steps"
     node $HOME/Documents/scripts/gen_steps.js
 end
+
+
+function turkey -d "generate a public key for turbine connectors"
+  rm -R $HOME/.config/@swimlane/turbine-sdk/keys/
+  tsdk turbine connector keys generate --key-name $TURBINE_KEYS_KEY_NAME --signing-password $TURBINE_KEYS_SIGN_PASSWORD --turbine-url $TURBINE_KEYS_URL -u $TURBINE_KEYS_USERNAME  -p $TURBINE_KEYS_PASSWORD
+  echo "key generated"
+end
+
+function turbuild -d "build connector locally"
+  echo "Deleting old connector artifatcs -> *.tar.gz"
+  ls *tar.gz
+  rm *tar.gz
+  tsdk connector build --template python_310_definition --key-name $TURBINE_KEYS_KEY_NAME --signing-password $TURBINE_KEYS_SIGN_PASSWORD --save --registry=localhost:5001
+  echo "Saving new connector artifact..."
+  set CONNECTOR_ARTIFACT (ls *tar.gz)
+  ls *tar.gz
+  tsdk turbine connector push -f $CONNECTOR_ARTIFACT -p $TURBINE_KEYS_PASSWORD -u $TURBINE_KEYS_USERNAME --turbine-url $TURBINE_KEYS_URL
+end
