@@ -72,4 +72,5 @@ return require("packer").startup(function(use)
     -- git
     use "tpope/vim-fugitive"
 
+    use "tpope/vim-commentary"
 end)
