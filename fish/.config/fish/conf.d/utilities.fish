@@ -27,6 +27,9 @@ function prepy -d "prepare a python repository with my personal configs"
 	echo '.pre-commit-config.yaml' >> .gitignore
 end
 
+function catj -d "do a cat and then send to jq"
+    cat $argv | jq '.'
+end
 
 function buildnvim -d "build nvim from source"
   echo "Saving current version"

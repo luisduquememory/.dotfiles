@@ -9,6 +9,7 @@ abbr swv "swsdk integration validate -s"
 abbr tur "tsdk action run local"
 abbr genin "tsdk action generate input"
 abbr genout "tsdk action generate output"
+abbr turadd "tsdk action add"
 
 function swd -d "debug task with local container"
   # select the task to debug
