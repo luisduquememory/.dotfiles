@@ -22,6 +22,9 @@ vim.cmd[[colorscheme dracula]]
 -- this enabled highlight on yank
 vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 
+-- enable fish filetype recognition
+vim.cmd[[autocmd BufRead,BufNewFile *.fish setfiletype fish]]
+
 -- Indentation
 set.tabstop = 2
 set.shiftwidth = 2

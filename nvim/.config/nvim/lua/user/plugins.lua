@@ -30,8 +30,6 @@ return require("packer").startup(function(use)
     }
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    -- Fish sintax support
-    use "dag/vim-fish"
     -- Autopair symbols
     use {
         "windwp/nvim-autopairs",
