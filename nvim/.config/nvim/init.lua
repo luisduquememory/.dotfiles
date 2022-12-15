@@ -48,4 +48,4 @@ set.timeoutlen = 500
 set.nrformats = "bin,hex,alpha"
 
 -- GUI font
-set.guifont = "Fira Code:h17"
+set.guifont = "Fira Code:h18"

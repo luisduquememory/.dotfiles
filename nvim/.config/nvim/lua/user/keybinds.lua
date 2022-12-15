@@ -63,6 +63,7 @@ wk.register({
         s = {":Telescope lsp_document_symbols<CR>", "Document symbols"},
       },
       r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol"},
+      R = {"<cmd>LspRestart<CR>", "Restart server"},
       s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Display signature information"},
 	},
 }, leader_prefix)
