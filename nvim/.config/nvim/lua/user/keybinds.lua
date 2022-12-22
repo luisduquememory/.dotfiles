@@ -12,6 +12,10 @@ local wk = require("which-key")
 -- I haven't found how to do a double space with which-key yet
 map({"n"}, "<Leader><Leader>", ":Telescope find_files <CR>")
 
+-- Return to normal mode from terminal mode
+map({"t"}, "<C-Q>", "<C-\\><C-n>")
+
+
 -- globals
 wk.register({
 	c = {":%s///ng<CR>", "Full search count" },
@@ -19,8 +23,9 @@ wk.register({
 	o = {":on<CR>", "Only"},
 	n = {":noh<CR>", "No search selection"},
 	h = {":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP"},
-    d = {'"_d', "Delete moving to _"},
-    r = {":Telescope registers<CR>", "show registers"},
+  a = {'"_', "Black hole register"},
+  r = {":Telescope registers<CR>", "show registers"},
+  w = {"<C-w>w", "Next window"},
   }, leader_prefix)
 
 -- projects
