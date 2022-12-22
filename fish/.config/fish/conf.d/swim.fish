@@ -60,3 +60,11 @@ function turbuild -d "build connector locally"
   ls *tar.gz
   tsdk turbine connector push -f $CONNECTOR_ARTIFACT -p $TURBINE_PASSWORD -u $TURBINE_USERNAME --turbine-url $TURBINE_URL
 end
+
+function turrepo -d "creates connector repo"
+    if count $argv > /dev/null
+      gh workflow run "Setup Repository" --repo="swimlane-connectors/connector-workflows" -f "name=$argv" -f "template_repo=connector-template" -f "topics=connector"
+    else
+        echo "provide a repository name"
+    end
+end
