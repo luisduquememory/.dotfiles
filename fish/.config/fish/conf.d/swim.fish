@@ -6,7 +6,6 @@ abbr swr "swsdk task run -s --verbose"
 abbr swv "swsdk integration validate -s"
 
 # turbine
-abbr tur "tsdk action run local"
 abbr genin "tsdk action generate input"
 abbr genout "tsdk action generate output"
 abbr turadd "tsdk action add"
@@ -66,5 +65,13 @@ function turrepo -d "creates connector repo"
       gh workflow run "Setup Repository" --repo="swimlane-connectors/connector-workflows" -f "name=$argv" -f "template_repo=connector-template" -f "topics=connector"
     else
         echo "provide a repository name"
+    end
+end
+
+function tur -d "run a turbine action locally"
+    if count $argv > /dev/null
+      tsdk action run local -a $argv; cat (string join "" "data/" "$argv" "_output.json") | jq '.'
+    else
+      tsdk action run local
     end
 end
