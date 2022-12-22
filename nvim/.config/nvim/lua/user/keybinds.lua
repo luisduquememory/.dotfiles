@@ -15,10 +15,10 @@ map({"n"}, "<Leader><Leader>", ":Telescope find_files <CR>")
 -- Return to normal mode from terminal mode
 map({"t"}, "<C-Q>", "<C-\\><C-n>")
 
-
 -- globals
 wk.register({
-	c = {":%s///ng<CR>", "Full search count" },
+	c = {":", "Command entry", silent=false },
+	C = {":%s///ng<CR>", "Full search count" },
 	q = {":Telescope quickfix<CR>", "QuickFix" },
 	o = {":on<CR>", "Only"},
 	n = {":noh<CR>", "No search selection"},
@@ -47,6 +47,7 @@ wk.register({
     f = {
       name = "format",
       j = {"<CMD>%! jq .<CR><CMD>w<CR>", "json with jq"},
+      p = {"<CMD>!black %<CR>", "python with black"},
     }
 	},
 }, leader_prefix)
