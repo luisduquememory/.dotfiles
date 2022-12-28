@@ -15,6 +15,10 @@ map({"n"}, "<Leader><Leader>", ":Telescope find_files <CR>")
 -- Return to normal mode from terminal mode
 map({"t"}, "<C-Q>", "<C-\\><C-n>")
 
+-- Scroll without loosing the cursor
+map({"n"}, "<C-d>", "<C-d>zz")
+map({"n"}, "<C-u>", "<C-u>zz")
+
 -- globals
 wk.register({
 	c = {":", "Command entry", silent=false },
