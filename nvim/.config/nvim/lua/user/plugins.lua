@@ -46,6 +46,7 @@ return require("packer").startup(function(use)
     use "mfussenegger/nvim-dap"
     use "mfussenegger/nvim-dap-python"
     use "rcarriga/nvim-dap-ui"
+    use "rcarriga/cmp-dap"
     -- LSP
     use {
         "VonHeikemen/lsp-zero.nvim",
