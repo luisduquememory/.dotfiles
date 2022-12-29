@@ -18,3 +18,5 @@
 	cb = checkout -b
 	p = push
 	pf = push --force
+[pull]
+	rebase = true
