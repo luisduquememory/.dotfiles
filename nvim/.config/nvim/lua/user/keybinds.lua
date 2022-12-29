@@ -21,8 +21,9 @@ map({"n"}, "<C-u>", "<C-u>zz")
 
 -- globals
 wk.register({
+	C = {":Telescope commands<CR>", "Command search"},
 	c = {":", "Command entry", silent=false },
-	C = {":%s///ng<CR>", "Full search count" },
+	S = {":%s///ng<CR>", "Full search count" },
 	q = {":Telescope quickfix<CR>", "QuickFix" },
 	o = {":on<CR>", "Only"},
 	n = {":noh<CR>", "No search selection"},
