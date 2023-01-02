@@ -11,19 +11,19 @@ require("user.hydra")
 
 local g = vim.g
 local o = vim.o
-local set= vim.opt
+local set = vim.opt
 
 g.mapleader = " "
 require("user.keybinds") -- Always mapleader before any keybind
 
-vim.cmd[[colorscheme dracula]]
+vim.cmd([[colorscheme dracula]])
 
 -- I'm not sure how to translate this to lua syntax
 -- this enabled highlight on yank
-vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
+vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
 
 -- enable fish filetype recognition
-vim.cmd[[autocmd BufRead,BufNewFile *.fish setfiletype fish]]
+vim.cmd([[autocmd BufRead,BufNewFile *.fish setfiletype fish]])
 
 -- Indentation
 set.tabstop = 2
@@ -39,7 +39,7 @@ set.number = true
 set.relativenumber = true
 
 -- clipboard config
-set.clipboard  = "unnamedplus"
+set.clipboard = "unnamedplus"
 
 set.autoread = true
 set.syntax = "enabled"

@@ -1,5 +1,5 @@
-local Hydra = require('hydra')
-local dap = require'dap'
+local Hydra = require("hydra")
+local dap = require("dap")
 
 local hint = [[
   Steps       Session             Breakpoints     Windows
@@ -13,49 +13,49 @@ _C_: commands _q_: exit
 ]]
 
 local dap_hydra = Hydra({
-   hint = hint,
-   config = {
-      color = 'pink',
-      invoke_on_body = true,
-      hint = {
-         position = 'bottom',
-         border = 'rounded'
-      },
-   },
-	 name = 'dap',
-   mode = {'n','x'},
-   body = '<leader>hd',
-   heads = {
-      { 'n', dap.step_over, { silent = true } },
-      { 'i', dap.step_into, { silent = true } },
-      { 'o', dap.step_out, { silent = true } },
-      { 'c', dap.run_to_cursor, { silent = true } },
-      { 's', dap.continue, { silent = true } },
-      { 'x', ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", {exit=true, silent = true } },
-      { 'X', dap.close, { silent = true } },
-      { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
-      { 'b', dap.toggle_breakpoint, { silent = true } },
-      { 'q', nil, { exit = true, nowait = true } },
+	hint = hint,
+	config = {
+		color = "pink",
+		invoke_on_body = true,
+		hint = {
+			position = "bottom",
+			border = "rounded",
+		},
+	},
+	name = "dap",
+	mode = { "n", "x" },
+	body = "<leader>hd",
+	heads = {
+		{ "n", dap.step_over, { silent = true } },
+		{ "i", dap.step_into, { silent = true } },
+		{ "o", dap.step_out, { silent = true } },
+		{ "c", dap.run_to_cursor, { silent = true } },
+		{ "s", dap.continue, { silent = true } },
+		{ "x", ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", { exit = true, silent = true } },
+		{ "X", dap.close, { silent = true } },
+		{ "C", ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
+		{ "b", dap.toggle_breakpoint, { silent = true } },
+		{ "q", nil, { exit = true, nowait = true } },
 
-      { 'B', dap.clear_breakpoints, { silent = true } },
-      { 'P', ":lua require'dap'.list_breakpoints()<CR>:Telescope quickfix<CR>", { silent = true } },
-      { 'C', ":Telescope dap commands<CR>" },
-      { 'r', ":lua require'dap'.repl.open()<CR>" },
+		{ "B", dap.clear_breakpoints, { silent = true } },
+		{ "P", ":lua require'dap'.list_breakpoints()<CR>:Telescope quickfix<CR>", { silent = true } },
+		{ "C", ":Telescope dap commands<CR>" },
+		{ "r", ":lua require'dap'.repl.open()<CR>" },
 
-      -- move between windows
-      { 'j', "<C-w>j" },
-      { 'k', "<C-w>k" },
-      { 'h', "<C-w>h" },
-      { 'l', "<C-w>l" },
-      -- resize windows
-      { "H", "<C-w>3<" },
-      { "L", "<C-w>3>" },
-      { "K", "<C-w>2+" },
-      { "J", "<C-w>2-" },
-   }
+		-- move between windows
+		{ "j", "<C-w>j" },
+		{ "k", "<C-w>k" },
+		{ "h", "<C-w>h" },
+		{ "l", "<C-w>l" },
+		-- resize windows
+		{ "H", "<C-w>3<" },
+		{ "L", "<C-w>3>" },
+		{ "K", "<C-w>2+" },
+		{ "J", "<C-w>2-" },
+	},
 })
 Hydra.spawn = function(head)
-	if head == 'dap-hydra' then
+	if head == "dap-hydra" then
 		dap_hydra:activate()
 	end
 end
