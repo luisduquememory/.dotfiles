@@ -6,7 +6,7 @@ return require("packer").startup(function(use)
 	-- Packer is managed by itself
 	use("wbthomason/packer.nvim")
 	-- Color schema
-	use("Mofiqul/dracula.nvim")
+	use("sainnhe/gruvbox-material")
 	-- Indent lines
 	use("lukas-reineke/indent-blankline.nvim")
 	-- Toggleterm
