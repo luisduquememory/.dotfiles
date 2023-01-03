@@ -22,13 +22,14 @@ map({ "n" }, "<C-u>", "<C-u>zz")
 -- globals
 wk.register({
 	C = { ":Telescope commands<CR>", "Command search" },
-	c = { ":", "Command entry", silent = false },
 	S = { ":%s///ng<CR>", "Full search count" },
-	q = { ":Telescope quickfix<CR>", "QuickFix" },
-	o = { ":on<CR>", "Only" },
-	n = { ":noh<CR>", "No search selection" },
-	h = { ":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP" },
 	a = { '"_', "Black hole register" },
+	c = { ":", "Command entry", silent = false },
+	h = { ":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP" },
+	m = { ":Telescope marks<CR>", "Marks" },
+	n = { ":noh<CR>", "No search selection" },
+	o = { ":on<CR>", "Only" },
+	q = { ":Telescope quickfix<CR>", "QuickFix" },
 	r = { ":Telescope registers<CR>", "show registers" },
 	w = { "<C-w>w", "Next window" },
 }, leader_prefix)
