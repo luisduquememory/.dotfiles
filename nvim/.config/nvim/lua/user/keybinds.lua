@@ -18,10 +18,13 @@ map({ "t" }, "<C-Q>", "<C-\\><C-n>")
 -- Scroll without loosing the cursor
 map({ "n" }, "<C-d>", "<C-d>zz")
 map({ "n" }, "<C-u>", "<C-u>zz")
+map({ "n" }, "n", "nzz")
+map({ "n" }, "N", "Nzz")
 
 -- globals
 wk.register({
 	C = { ":Telescope commands<CR>", "Command search" },
+	H = { ":Telescope help_tags<CR>", "Help tags" },
 	S = { ":%s///ng<CR>", "Full search count" },
 	a = { '"_', "Black hole register" },
 	c = { ":", "Command entry", silent = false },
@@ -95,9 +98,12 @@ wk.register({
 -- git
 wk.register({
 	g = {
-		name = "Git utils",
-		r = { ":GMove ", "Rename current file" },
+		name = "Git",
 		a = { ":Git add % <CR>", "Add current file" },
-		b = { ":Git blame<CR>", "Add current file" },
+		b = { ":Git blame<CR>", "Blame" },
+		g = { ":Git<CR><CMD>on<CR>", "Status" },
+		p = { ":Git push<CR>", "Push" },
+		r = { ":GMove ", "Rename current file" },
+		s = { ":Gvdiffsplit!<CR>", "Open diff for conflict resolution" },
 	},
 }, leader_prefix)
