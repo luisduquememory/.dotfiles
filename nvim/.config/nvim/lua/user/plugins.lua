@@ -90,4 +90,13 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-python",
+		},
+	})
 end)

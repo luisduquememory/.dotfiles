@@ -28,6 +28,7 @@ wk.register({
 	S = { ":%s///ng<CR>", "Full search count" },
 	a = { '"_', "Black hole register" },
 	c = { ":", "Command entry", silent = false },
+	d = { "<CMD>lua vim.diagnostic.show()<CR><CMD>Telescope quickfix<CR>", "Show diagnostics" },
 	h = { ":lua require'hydra'.spawn('dap-hydra')<CR>", "DAP" },
 	m = { ":Telescope marks<CR>", "Marks" },
 	n = { ":noh<CR>", "No search selection" },
@@ -105,5 +106,18 @@ wk.register({
 		p = { ":Git push<CR>", "Push" },
 		r = { ":GMove ", "Rename current file" },
 		s = { ":Gvdiffsplit!<CR>", "Open diff for conflict resolution" },
+	},
+}, leader_prefix)
+
+wk.register({
+	t = {
+		t = {
+			name = "Tests",
+			d = { "<CMD>lua require('neotest').run.run({strategy = 'dap'})<CR>", "Debug nearest" },
+			f = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run current file" },
+			p = { "<CMD>lua require('neotest').output_panel.toggle()<CR>", "Toggle output panel" },
+			r = { "<CMD>lua require('neotest').run.run()<CR>", "Run nearest" },
+			t = { "<CMD>lua require('neotest').summary.toggle()<CR>", "Toggle summary" },
+		},
 	},
 }, leader_prefix)

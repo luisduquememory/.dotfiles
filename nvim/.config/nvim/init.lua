@@ -8,6 +8,7 @@ require("user.lualine")
 require("user.lsp")
 require("user.telescope")
 require("user.hydra")
+require("user.neotest")
 
 local g = vim.g
 local o = vim.o
